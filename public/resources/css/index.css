@@ -64,7 +64,9 @@ body {
 }
 
 .pages a,
-.profile a {
+.pages button,
+.profile a,
+.profile button {
   height: var(--navbar-size);
   width: var(--navbar-size);
   font-weight: 800;
@@ -77,6 +79,21 @@ body {
   border: 0px;
   -webkit-box-shadow: 0 3px 5px -5px rgba(0, 0, 0, 0.21);
           box-shadow: 0 3px 5px -5px rgba(0, 0, 0, 0.21);
+  cursor: pointer;
+}
+
+.pages button.login,
+.profile button.login {
+  background-color: white;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  margin: 0 0.6rem 0 0.25rem;
+  padding: 0.6rem;
+  -webkit-box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.6);
+          box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.6);
+  font-weight: 400;
+  outline: none;
 }
 
 #item-counts {
@@ -794,7 +811,7 @@ img {
   text-align: left;
 }
 
-.center-div h2 {
+.center-div #topPosts {
   margin-top: 34px;
 }
 
@@ -818,7 +835,7 @@ img {
   margin: 0.6rem;
 }
 
-.showcase-options-container .product-price {
+.showcase-options-container .total-trash-ex-div {
   padding: 0rem 1rem 1rem 1rem;
 }
 
@@ -875,6 +892,10 @@ img {
   margin: auto;
 }
 
+.showcase-option h3 {
+  margin-bottom: 1rem !important;
+}
+
 .showcase-option h2 {
   padding: 0.6rem;
   height: -webkit-fit-content;
@@ -896,6 +917,10 @@ img {
   -ms-flex-pack: distribute;
       justify-content: space-around;
   padding: 0.6;
+}
+
+.total-trash-ex-div h2 {
+  margin-bottom: 1.3rem !important;
 }
 
 .showcase-div {
@@ -1064,6 +1089,112 @@ img {
   padding: 0px;
 }
 
+.app__modal {
+  width: 60%;
+  max-width: 500px;
+  position: fixed;
+  left: 20%;
+  top: 13%;
+  background-color: white;
+  padding: 2rem;
+  border-radius: 1rem;
+}
+
+.app__signup {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 100%;
+}
+
+.app__signup div {
+  margin-top: 1rem !important;
+}
+
+.app__signup button {
+  margin-top: 1rem !important;
+}
+
+.app__signup img {
+  margin-bottom: 1rem;
+}
+
+.new-post-div {
+  -webkit-box-shadow: 0px 5px 34px rgba(157, 89, 0, 0.3);
+          box-shadow: 0px 5px 34px rgba(157, 89, 0, 0.3);
+  background-color: white;
+  border-radius: 0.6rem;
+}
+
+.new-post-div .imageupload {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 95%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 10px;
+  background-color: white;
+  padding: 13px;
+}
+
+.new-post-div .imageupload input {
+  margin-top: 0.6rem;
+}
+
+.new-post-div .imageupload__progress {
+  width: 100%;
+}
+
+.new-post-div textarea {
+  outline: none;
+  border: 0px solid lightgray;
+}
+
+.new-post-div .w3-light-grey {
+  margin-top: 0.6rem;
+}
+
+.new-post-div .w3-light-grey button {
+  outline: none;
+}
+
+.new-post-div .type {
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+
+.new-post-div .type #Taker {
+  margin-left: 0.6rem;
+}
+
+.new-post-div .type label {
+  margin-left: 0.3rem;
+}
+
+.new-button {
+  display: inline-block;
+  padding: 8px 12px;
+  cursor: pointer;
+  border-radius: 4px;
+  background-color: #9c27b0;
+  font-size: 16px;
+  color: #fff;
+}
+
+.button-wrap {
+  position: relative;
+}
+
 @media (min-width: 900px) {
   :root {
     --navbar-size: 55px;
@@ -1129,7 +1260,8 @@ img {
             box-shadow: none;
   }
   .pages a,
-  .profile a {
+  .profile a,
+  .profile button {
     height: var(--navbar-size);
     width: var(--navbar-size);
     font-weight: 800;
@@ -1171,6 +1303,13 @@ img {
   .profile a:hover {
     -webkit-transform: scale(0.96);
             transform: scale(0.96);
+    -webkit-box-shadow: 0px 0px 13px rgba(157, 89, 0, 0.6);
+            box-shadow: 0px 0px 13px rgba(157, 89, 0, 0.6);
+    /* background-color: $color-main-lighter; */
+  }
+  .profile button.login:hover {
+    -webkit-transform: scale(1.02);
+            transform: scale(1.02);
     -webkit-box-shadow: 0px 0px 13px rgba(157, 89, 0, 0.6);
             box-shadow: 0px 0px 13px rgba(157, 89, 0, 0.6);
     /* background-color: $color-main-lighter; */
@@ -1288,7 +1427,8 @@ img {
             box-shadow: none;
   }
   .pages a,
-  .profile a {
+  .profile a,
+  .profile button {
     height: var(--navbar-size);
     width: var(--navbar-size);
     font-weight: 800;
@@ -1330,6 +1470,13 @@ img {
   .profile a:hover {
     -webkit-transform: scale(0.96);
             transform: scale(0.96);
+    -webkit-box-shadow: 0px 0px 13px rgba(157, 89, 0, 0.6);
+            box-shadow: 0px 0px 13px rgba(157, 89, 0, 0.6);
+    /* background-color: $color-main-lighter; */
+  }
+  .profile button.login:hover {
+    -webkit-transform: scale(1.02);
+            transform: scale(1.02);
     -webkit-box-shadow: 0px 0px 13px rgba(157, 89, 0, 0.6);
             box-shadow: 0px 0px 13px rgba(157, 89, 0, 0.6);
     /* background-color: $color-main-lighter; */
@@ -1487,7 +1634,7 @@ img {
   .showcase-options-container .showcase-main-div h3 {
     margin: 0.6rem;
   }
-  .showcase-options-container .product-price {
+  .showcase-options-container .total-trash-ex-div {
     padding: 0rem 1rem 1rem 1rem;
   }
   .showcase-options-container .add-to-card-div {
@@ -1538,6 +1685,9 @@ img {
             box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.21);
     margin: auto;
   }
+  .showcase-option h3 {
+    margin-bottom: 1rem !important;
+  }
   .showcase-option h2 {
     padding: 0.6rem;
     height: -webkit-fit-content;
@@ -1558,6 +1708,9 @@ img {
     -ms-flex-pack: distribute;
         justify-content: space-around;
     padding: 0.6;
+  }
+  .total-trash-ex-div h2 {
+    margin-bottom: 1.3rem !important;
   }
   .showcase-div {
     padding: 1rem 1rem 0rem 1rem;
@@ -1665,8 +1818,8 @@ img {
   .center-div .top-post-div .post-img img {
     width: calc( 13 / 26 * 100vw - 1em - 1em - 1em - 1em);
   }
-  .center-div h2 {
-    margin-top: 34px;
+  .app__modal {
+    left: calc(50% - 255px);
   }
 }
 /*# sourceMappingURL=index.css.map */

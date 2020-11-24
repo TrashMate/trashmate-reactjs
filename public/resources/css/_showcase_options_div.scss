@@ -16,7 +16,7 @@
             margin: 0.6rem;
         }
     }
-    .product-price {
+    .total-trash-ex-div {
         padding: 0rem 1rem 1rem 1rem;
     }
     .add-to-card-div {
@@ -33,6 +33,7 @@
     padding: 0rem 1.6rem 0rem 0.6rem;
     box-shadow: $shadows-black;
     background-color: rgba($color: #fff, $alpha: 0.6);
+
     cursor: pointer;
     transition: transform 0.2s ease-out, box-shadow 0.3s ease-out;
     &:hover {
@@ -48,6 +49,9 @@
         box-shadow: $shadows-black;
         margin: auto;
     }
+    h3 {
+        margin-bottom: 1rem !important;
+    }
     h2 {
         padding: 0.6rem;
         height: fit-content;
@@ -56,6 +60,11 @@
     }
     .showcase-option-value {
         @include verticalCenter(0.6);
+    }
+}
+.total-trash-ex-div {
+    h2 {
+        margin-bottom: 1.3rem !important;
     }
 }
 

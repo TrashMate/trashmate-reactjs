@@ -1,0 +1,25 @@
+.app__modal {
+    width: 60%;
+    max-width: 500px;
+    position: fixed;
+    left: 20%;
+    top: 13%;
+    background-color: white;
+    padding: 2rem;
+    border-radius: 1rem;
+}
+
+.app__signup {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    div {
+        margin-top: 1rem !important;
+    }
+    button {
+        margin-top: 1rem !important;
+    }
+    img {
+        margin-bottom: 1rem;
+    }
+}

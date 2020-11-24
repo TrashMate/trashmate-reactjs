@@ -1,0 +1,65 @@
+.new-post-div {
+    box-shadow: 0px 5px 34px rgba(157, 89, 0, 0.3);
+    background-color: white;
+    border-radius: 0.6rem;
+    .imageupload {
+        display: flex;
+        flex-direction: column;
+        width: 95%;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 10px;
+        // margin-bottom: 10px;
+        background-color: white;
+        padding: 13px;
+        input {
+            margin-top: 0.6rem;
+        }
+    }
+
+    .imageupload__progress {
+        width: 100%;
+    }
+
+    textarea {
+        outline: none;
+        border: 0px solid lightgray;
+        // box-shadow: 0px 5px -21px rgba(157, 89, 0, 0.3);
+    }
+    .w3-light-grey {
+        margin-top: 0.6rem;
+        button {
+            outline: none;
+            // width: 21%;
+        }
+    }
+    .type {
+        width: fit-content;
+        #Taker {
+            margin-left: 0.6rem;
+        }
+        label {
+            margin-left: 0.3rem;
+        }
+    }
+}
+.new-button {
+    display: inline-block;
+    padding: 8px 12px;
+    cursor: pointer;
+    border-radius: 4px;
+    background-color: #9c27b0;
+    font-size: 16px;
+    color: #fff;
+}
+// input[type="file"] {
+//     position: absolute;
+//     z-index: -1;
+//     top: 6px;
+//     left: 0;
+//     font-size: 15px;
+//     color: rgb(153, 153, 153);
+// }
+.button-wrap {
+    position: relative;
+}
