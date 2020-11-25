@@ -1,11 +1,16 @@
 import logo from "../logo/logo.svg";
-import "../css/App.css";
+// import "../css/App.css";
 import Navbar from "../js/components/Navbar";
 import ImageUpload from "../js/ImageUpload";
 import React, { useState, useEffect } from "react";
 import { Button, Input, Modal } from "@material-ui/core";
 import { db, auth } from "../js/firebase";
+import Post from "../js/Post";
+import Avatar from "@material-ui/core/Avatar";
+import MenuPopupState from "./components/MenuPopupState";
+
 function App() {
+    const [posts, setPosts] = useState([]);
     const [pageSelected, setPageSelected] = useState(0);
     const [openSignIn, setOpenSignIn] = useState(false);
     const [openImageUpload, setOpenImageUpload] = useState(false);
@@ -60,6 +65,28 @@ function App() {
             unsubscribe();
         };
     }, [user, username]);
+
+    useEffect(() => {
+        // This is where the code runs
+        db.collection("posts")
+            .orderBy("timestamp", "desc")
+            .onSnapshot((snapshot) => {
+                // every time a new post is added, this code fires up
+                setPosts(
+                    snapshot.docs.map((doc) => ({
+                        postType: doc.postType,
+                        id: doc.id,
+                        post: doc.data(),
+                    }))
+                );
+            });
+    }, []);
+    var giverCout = 0,
+        takerCout = 0;
+    for (var i = 0; i < posts.length; ++i) {
+        if (posts[i].post.postType == "G") ++giverCout;
+        else ++takerCout;
+    }
     return (
         <div className="grid-container">
             <a href="about.html" className="logo">
@@ -232,8 +259,10 @@ function App() {
                 data-paroller-type="foreground"
                 data-paroller-direction="vertical"
             >
+                {" "}
+                {}
                 <h2>Recent Giver posts</h2>
-                <div className="left-post-div">
+                {/* <div className="left-post-div">
                     <div className="left-profile">
                         <img src="resources/imgs/0.jpeg" alt="" />
                         <a href="#">Navpreet Singh Devpuri</a>
@@ -241,7 +270,24 @@ function App() {
                     <div className="post-img">
                         <img src="resources/imgs/giver1.jpg" alt="" />
                     </div>
-                </div>
+                </div> */}
+                {console.log(posts)}
+                {posts
+                    .filter(({ id, post }) => post.postType === "G")
+                    .map(({ id, post }) => (
+                        <Post
+                            key={id}
+                            postId={id}
+                            user={user}
+                            username={post.username}
+                            caption={post.caption}
+                            imageUrl={post.imageUrl}
+                            imagename={post.imagename}
+                            viewwhichuser={setViewWhichUser}
+                            viewsinglepost={setViewSinglePost}
+                            postType={post.postType}
+                        />
+                    ))}
             </div>
             <div
                 className="center-div"
@@ -266,7 +312,7 @@ function App() {
                                         />
                                     </div>
                                     <div className="showcase-option-value">
-                                        <h2>4</h2>
+                                        <h2>{giverCout}</h2>
                                     </div>
                                 </div>
                                 <div className="showcase-option">
@@ -281,7 +327,7 @@ function App() {
                                         />
                                     </div>
                                     <div className="showcase-option-value">
-                                        <h2>4</h2>
+                                        <h2>{takerCout}</h2>
                                     </div>
                                 </div>
                             </div>
@@ -313,14 +359,49 @@ function App() {
                     </div>
                 </div>
                 <h2 id="topPosts">Top Posts</h2>
-                <div className="top-post-div">
+                {posts.map(({ id, post }) => (
+                    <Post
+                        key={id}
+                        postId={id}
+                        user={user}
+                        username={post.username}
+                        caption={post.caption}
+                        imageUrl={post.imageUrl}
+                        imagename={post.imagename}
+                        viewwhichuser={setViewWhichUser}
+                        viewsinglepost={setViewSinglePost}
+                        postType={post.postType}
+                    />
+                ))}
+                {/* <div className="top-post-div">
                     <div className="top-profile-div">
                         <div className="top-profile">
-                            <img src="resources/imgs/0.jpeg" alt="" />
+                            <Avatar
+                                className="post__avatar"
+                                alt={username}
+                                src="/static/images/avatar/1.jpg"
+                                // onClick={}
+                            />
                             <a href="#">
-                                Navpreet Singh Devpuri at Punjab
+                                Navpreet Singh Devpuri
                                 <p>. 3 minutes ago</p>
                             </a>
+                            {(true ||
+                                (user &&
+                                    auth.currentUser.email ===
+                                        "admin@gmail.com")) && (
+                                <div className="delete__Post">
+                                    
+                                    <MenuPopupState
+                                        lang={""}
+                                        datatopass={""}
+                                        functiontopass={() => {
+                                            console.log("yess");
+                                        }}
+                                        labeltopass="Delete this post"
+                                    />
+                                </div>
+                            )}
                         </div>
                         <p className="post-discription">
                             look at this Creativity.
@@ -329,7 +410,7 @@ function App() {
                     <div className="post-img">
                         <img src="resources/imgs/taker1.jpg" alt="" />
                     </div>
-                </div>
+                </div> */}
             </div>
             <div
                 className="right-div"
@@ -338,7 +419,7 @@ function App() {
                 data-paroller-direction="vertical"
             >
                 <h2>Recent Taker posts</h2>
-                <div className="right-post-div">
+                {/* <div className="right-post-div">
                     <div className="right-profile-div">
                         <div className="right-profile">
                             <img src="resources/imgs/0.jpeg" alt="" />
@@ -354,7 +435,23 @@ function App() {
                     <div className="post-img">
                         <img src="resources/imgs/taker1.jpg" alt="" />
                     </div>
-                </div>
+                </div> */}
+                {posts
+                    .filter(({ id, post }) => post.postType === "T")
+                    .map(({ id, post }) => (
+                        <Post
+                            key={id}
+                            postId={id}
+                            user={user}
+                            username={post.username}
+                            caption={post.caption}
+                            imageUrl={post.imageUrl}
+                            imagename={post.imagename}
+                            viewwhichuser={setViewWhichUser}
+                            viewsinglepost={setViewSinglePost}
+                            postType={post.postType}
+                        />
+                    ))}
             </div>
         </div>
     );

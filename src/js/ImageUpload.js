@@ -10,8 +10,9 @@ function ImageUpload({ username, closemodal, viewwhichuser, viewsinglepost }) {
     const [progress, setProgress] = useState(0);
     const [caption, setCaption] = useState("");
     const [postType, setPostType] = useState(null);
+    // const [message, setMessage] = useState("");
 
-    const handleChange = (e) => {
+    const handleChangeImage = (e) => {
         // this will pick the FIRST file selected (to avoid selecting many)
         if (e.target.files[0]) {
             setImage(e.target.files[0]);
@@ -91,7 +92,7 @@ function ImageUpload({ username, closemodal, viewwhichuser, viewsinglepost }) {
                 <label className="new-button" for="upload"></label>
                 <input type="file" id="upload" onChange={handleChange} />
             </div> */}
-            <input type="file" id="upload" onChange={handleChange} />
+            <input type="file" id="upload" onChange={handleChangeImage} />
             <div class="type">
                 <input
                     type="radio"
@@ -110,7 +111,7 @@ function ImageUpload({ username, closemodal, viewwhichuser, viewsinglepost }) {
                 />
                 <label for="female">Taker</label>
             </div>
-
+            {/* <div className="message">{}</div> */}
             <div class="w3-light-grey w3-round-xlarge">
                 <Button
                     disabled={!(image && postType)}

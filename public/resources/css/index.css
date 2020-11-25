@@ -1,3 +1,4 @@
+@charset "UTF-8";
 @font-face {
   font-family: "stylo";
   src: url("../fonts/BRUSHSTP.ttf") format("truetype");
@@ -1193,6 +1194,260 @@ img {
 
 .button-wrap {
   position: relative;
+}
+
+.breakfix {
+  /* For fixing issue with long URLs exceeding width */
+  white-space: -moz-pre-wrap;
+  /* Mozilla */
+  white-space: -hp-pre-wrap;
+  /* HP printers */
+  white-space: -o-pre-wrap;
+  /* Opera 7 */
+  white-space: -pre-wrap;
+  /* Opera 4-6 */
+  white-space: pre-wrap;
+  /* CSS 2.1 */
+  white-space: pre-line;
+  /* CSS 3 (and 2.1 as well, actually) */
+  word-wrap: break-word;
+  /* IE */
+  word-break: break-word;
+}
+
+.post {
+  background-color: white;
+  width: 100%;
+  border: 1px solid lightgray;
+  margin-bottom: 30px;
+}
+
+.post__image {
+  width: 100%;
+  -o-object-fit: contain;
+     object-fit: contain;
+  border-top: 1px solid lightgray;
+  border-bottom: 1px solid lightgray;
+}
+
+.post__text {
+  text-align: left;
+  font-weight: normal;
+  padding: 20px;
+}
+
+.post__text > strong {
+  cursor: pointer;
+}
+
+.post__header  {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 10px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.post__avatar {
+  margin: 10px;
+  float: left;
+  cursor: pointer;
+  -webkit-box-flex: 0;
+      -ms-flex: 0 auto;
+          flex: 0 auto;
+}
+
+.post__postType {
+  width: 29px !important;
+  height: 29px !important;
+}
+
+.post__postType img {
+  width: 29px !important;
+  height: 29px !important;
+}
+
+.post__username {
+  cursor: pointer;
+}
+
+.post__username h3 {
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  float: left;
+  justify-items: left;
+  margin-top: 0.1rem;
+}
+
+.post__commentBox {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-top: 10px;
+}
+
+.post__comments {
+  padding: 20px;
+  margin-top: -20px;
+  margin-bottom: 5px;
+  /* word-break: break-all; */
+}
+
+.post__comment {
+  margin-bottom: 10px;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+
+.post__comment > strong {
+  cursor: pointer;
+}
+
+input,
+textarea,
+.post__input {
+  outline: none;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  border: none;
+  padding: 10px;
+  border-top: 1px solid lightgray;
+  line-height: 20px;
+  font-family: Arial, Helvetica, sans-serif;
+  padding-bottom: 0px;
+}
+
+/* .post__input::placeholder{
+    font-size: 1em;
+    font-family: Arial, Helvetica, sans-serif;
+}
+ */
+.post__button {
+  -webkit-box-flex: 0;
+      -ms-flex: 0;
+          flex: 0;
+  border: none;
+  color: #6082a3;
+  background-color: transparent;
+  border-top: 1px solid lightgray;
+  padding: 20px;
+}
+
+.post__thumbs {
+  width: 100%;
+  max-width: 1000px;
+}
+
+.post__thumb {
+  width: 100%;
+  cursor: pointer;
+  width: 100%;
+  /* width of container */
+  height: 180px;
+  /* height of container */
+  overflow: hidden;
+  padding: 0px;
+}
+
+.post__thumb img {
+  margin: 0px 0px 0px 0px;
+  padding: 0px;
+}
+
+.comment_container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.comment_container .post__comment {
+  text-align: left;
+}
+
+.delete__Post,
+.delete__CommentButton {
+  position: relative;
+  top: 0px;
+  right: 0px;
+  float: right;
+  cursor: pointer;
+  padding-right: 20px;
+  font-size: 12px;
+  /* color: red; */
+  text-align: right;
+  -webkit-box-flex: 0;
+      -ms-flex: 0 auto;
+          flex: 0 auto;
+}
+
+.delete__Post {
+  margin-top: 0.6rem;
+}
+
+.comment__morevert {
+  -webkit-box-flex: 0;
+      -ms-flex: 0;
+          flex: 0;
+  cursor: pointer;
+}
+
+.delete__CommentButton {
+  /* display: none; */
+  font-size: 10px;
+}
+
+.hidden__dropdown {
+  display: none;
+}
+
+.post__image {
+  width: 100%;
+  -o-object-fit: contain;
+     object-fit: contain;
+  border-top: 1px solid lightgray;
+  border-bottom: 1px solid lightgray;
+}
+
+.post__imgcontainer {
+  width: 100%;
+  -o-object-fit: none;
+     object-fit: none;
+}
+
+.post__thumbcontainer {
+  width: 100%;
+}
+
+@media (max-width: 768px) {
+  .post__thumbs {
+    width: 100%;
+  }
+  .post__thumb {
+    width: 100%;
+    cursor: pointer;
+    width: 100%;
+    /* width of container */
+    height: 80px;
+    /* height of container */
+    overflow: hidden;
+    padding: 0px;
+  }
+}
+
+.post {
+  padding: 0.6rem;
 }
 
 @media (min-width: 900px) {
