@@ -332,7 +332,7 @@ function App() {
                                 </div>
                             </div>
                             <div className="total-trash-ex-div">
-                                <h3>Total Trash exchanges</h3>
+                                <h3>Total Trash/Treasure exchanges</h3>
                                 <h2>0</h2>
                             </div>
                             <div className="add-to-card-div">
