@@ -3,6 +3,7 @@
 Invest Trash, Harvest Love - reactjs + firebase
 
 [Live demo](https://trashmate-a7b96.web.app/)
+
 [Demo page](https://trashmate.github.io/TrashMate/)
 
 ### 1. Inspiration
